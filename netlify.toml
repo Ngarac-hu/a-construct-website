@@ -1,0 +1,66 @@
+# ===========================
+# A-CONSTRUCT — NETLIFY CONFIG
+# Security, performance, routing
+# ===========================
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# ── SECURITY HEADERS ────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking
+    X-Frame-Options = "DENY"
+    # Stop MIME sniffing
+    X-Content-Type-Options = "nosniff"
+    # Force HTTPS
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # Control referrer info
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Permissions policy — disable unnecessary browser features
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+    # Content Security Policy — only allow trusted sources
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://apis.google.com https://accounts.google.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https:;
+      connect-src 'self' https://api.emailjs.com;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+    """
+    # XSS protection
+    X-XSS-Protection = "1; mode=block"
+
+# ── REDIRECTS ───────────────────────────────────────────────────────────────────
+# Force HTTPS (Netlify handles this but explicit is better)
+[[redirects]]
+  from = "http://aconstruct.ca/*"
+  to   = "https://aconstruct.ca/:splat"
+  status = 301
+  force  = true
+
+# Remove trailing slashes
+[[redirects]]
+  from   = "/*/"
+  to     = "/:splat"
+  status = 301
+
+# ── FUNCTIONS ───────────────────────────────────────────────────────────────────
+[functions]
+  node_bundler = "esbuild"
+
+# ── CACHING ─────────────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/app.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
