@@ -15,7 +15,7 @@ const CONFIG = {
 
   // Google Calendar — https://developers.google.com/calendar/api
   // Instructions in README.md → PART 5
-  GOOGLE_CLIENT_ID:  "YOUR_GOOGLE_CLIENT_ID",
+  GOOGLE_CLIENT_ID:  "490828160373-aeoiutbls2fpv5mm82mo86t344qp5ue2.apps.googleusercontent.com",
 
   // Your business details
   COMPANY_NAME:  "A-Construct",
