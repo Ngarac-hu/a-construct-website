@@ -13,6 +13,10 @@ const CONFIG = {
   EMAILJS_TEMPLATE_ID: "template_wi0j7iw",
   EMAILJS_PUBLIC_KEY:  "NUwtWjLnmhfrl1lIG",
 
+  // Google Calendar — https://developers.google.com/calendar/api
+  // Instructions in README.md → PART 5
+  GOOGLE_CLIENT_ID:  "YOUR_GOOGLE_CLIENT_ID",
+
   // Your business details
   COMPANY_NAME:  "A-Construct",
   CONTRACTOR:    "Adrian Gichane",
@@ -100,7 +104,7 @@ Client details:
 - Services requested: ${services.join(", ")}
 - Project description: ${message}
 
-Thank them by first name, confirm the specific services, tell them the next step is scheduling a free quote visit with ${CONFIG.CONTRACTOR}, and that he will be in touch shortly. Sound warm and human, not robotic.`;
+Thank them by first name, confirm the specific services, tell them the next step is scheduling a free quote visit with ${CONFIG.CONTRACTOR}, and that he will be in touch shortly. Sound warm and human,[...]
 
   let aiReply = "";
 
@@ -119,7 +123,7 @@ Thank them by first name, confirm the specific services, tell them the next step
 
   } catch (err) {
     // Friendly fallback if function not set up yet
-    aiReply = `Hi ${name}! Thanks for reaching out to ${CONFIG.COMPANY_NAME}. ${CONFIG.CONTRACTOR} has received your inquiry for ${services.join(", ")} and is looking forward to helping with your project. He'll be in touch shortly to discuss the details. In the meantime, feel free to use the calendar below to book a free quote visit at a time that works best for you!`;
+    aiReply = `Hi ${name}! Thanks for reaching out to ${CONFIG.COMPANY_NAME}. ${CONFIG.CONTRACTOR} has received your inquiry for ${services.join(", ")} and is looking forward to helping with your proj[...]
   }
 
   typing.style.display = "none";
