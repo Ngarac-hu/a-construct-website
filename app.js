@@ -9,9 +9,9 @@
 const CONFIG = {
   // EmailJS — https://emailjs.com (free, 200 emails/month)
   // Instructions in README.md → PART 4
-  EMAILJS_SERVICE_ID:  "YOUR_EMAILJS_SERVICE_ID",
-  EMAILJS_TEMPLATE_ID: "YOUR_EMAILJS_TEMPLATE_ID",
-  EMAILJS_PUBLIC_KEY:  "YOUR_EMAILJS_PUBLIC_KEY",
+  EMAILJS_SERVICE_ID:  "service_wd4xm6o",
+  EMAILJS_TEMPLATE_ID: "template_wi0j7iw",
+  EMAILJS_PUBLIC_KEY:  "NUwtWjLnmhfrl1lIG",
 
   // Your business details
   COMPANY_NAME:  "A-Construct",
